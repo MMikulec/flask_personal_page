@@ -1,0 +1,300 @@
+{% extends "base.jinja2" %}
+{% block head %}
+    <title>Blog</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+{% endblock %}
+
+{% block content %}
+    {#
+    <div class="lg:container mx-auto border-2 flex justify-between">
+        <svg class="w-[30px] h-[30px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 4 15">
+            <path d="M3.5 1.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 6.041a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 5.959a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z"/>
+        </svg>
+        <svg class="w-[30px] h-[30px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"></path>
+        </svg>
+    </div> #}
+    <div class="lg:container mx-auto flex bg-gradient-to-r from-body to-[rgba(35,35,45,1)] min-h-[calc(100vh-3rem)]">
+        <!-- Info bar -->
+        <aside class="w-72 {# bg-[#191923]/90 #} bg-[rgba(30,30,40,1)] text-white fixed overflow-auto hidden z-50 lg:block top-6 bottom-6">
+            <div class="">
+                <!-- Add your sidebar content here -->
+                <div class="bg-gradient-to-br from-[rgba(37,37,50,.88)] to-[rgba(35,35,45,.88)] h-64 w-72 p-6 fixed">
+                    <div class="group rounded-full w-[90px] h-[90px] mx-auto my-4 flex items-center justify-center relative">
+                        <img src="{{ url_for('static', filename='img/jondoe.jpg') }}" class="rounded-full w-[90px] h-[90px]">
+                        <svg class="invisible group-hover:visible opacity-40 hover:opacity-100 hover:duration-300 absolute w-[30px] h-[30px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
+                            <path d="M18 .989a1.016 1.016 0 0 0-.056-.277c-.011-.034-.009-.073-.023-.1a.786.786 0 0 0-.066-.1.979.979 0 0 0-.156-.224l-.007-.01a.873.873 0 0 0-.116-.073.985.985 0 0 0-.2-.128.959.959 0 0 0-.231-.047A.925.925 0 0 0 17 0h-4a1 1 0 1 0 0 2h1.664l-3.388 3.552a1 1 0 0 0 1.448 1.381L16 3.5V5a1 1 0 0 0 2 0V.989ZM17 12a1 1 0 0 0-1 1v1.586l-3.293-3.293a1 1 0 0 0-1.414 1.414L14.586 16H13a1 1 0 0 0 0 2h4a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1ZM3.414 2H5a1 1 0 0 0 0-2H1a1 1 0 0 0-1 1v4a1 1 0 0 0 2 0V3.414l3.536 3.535A1 1 0 0 0 6.95 5.535L3.414 2Zm2.139 9.276L2 14.665V13a1 1 0 1 0-2 0v4c.006.046.015.09.027.135.006.08.022.16.048.235a.954.954 0 0 0 .128.2.95.95 0 0 0 .073.117l.01.007A.983.983 0 0 0 1 18h4a1 1 0 0 0 0-2H3.5l3.436-3.276a1 1 0 0 0-1.38-1.448h-.003Z"></path>
+                        </svg>
+                    </div>
+                    <h5 class="text-white font-bold text-sm">Marek Mikulec</h5>
+                    <div class="text-my_gray text-sm">Developer<br>IT specialist</div>
+                </div>
+
+                <!-- Scrolled info -->
+                <div class="overflow-auto p-6 pt-72 pb-10">
+
+                    <ul class="">
+                        <li class="flex justify-between">
+                            <h6 class="text-soft_white">Residence:</h6>
+                            <span class="text-my_gray">Slovakia</span>
+                        </li>
+                        {#
+                        <li class="flex justify-between">
+                            <h6>City:</h6>
+                            <span>Toronto</span>
+                        </li>  #}
+                        <li class="flex justify-between">
+                            <h6 class="text-soft_white">Age:</h6>
+                            <span class="text-my_gray">32</span>
+                        </li>
+                    </ul>
+
+                    <div class="w-full h-[1px] my-6 bg-gray-700"> </div> <!-- line -->
+
+                    <div class="flex justify-between mb-2 text-sm">
+                            <h6 class="text-soft_white">Python:</h6>
+                            <span class="text-my_gray">85%</span>
+                    </div>
+                    <div class="w-full h-1 mb-4 bg-gray-700">
+                      <div class="bg-yellow-500 h-1 " style="width: 85%"></div>
+                    </div>
+
+                    <div class="flex justify-between mb-2 text-sm">
+                            <h6 class="text-soft_white">HTML CSS JS:</h6>
+                            <span class="text-my_gray">65%</span>
+                    </div>
+                    <div class="w-full h-1 mb-4 bg-gray-700">
+                      <div class="bg-yellow-500 h-1 " style="width: 65%"></div>
+                    </div>
+
+                    <div class="flex justify-between mb-2 text-sm">
+                            <h6 class="text-soft_white">Tailwind:</h6>
+                            <span class="text-my_gray">45%</span>
+                    </div>
+                    <div class="w-full h-1 mb-4 bg-gray-700">
+                      <div class="bg-yellow-500 h-1 " style="width: 45%"></div>
+                    </div>
+
+                    <div class="w-full h-[1px] my-12 bg-gray-700"> </div> <!-- line -->
+
+                </div>
+
+                <!-- Social media -->
+                <div class="bg-gradient-to-br from-[rgba(37,37,50,.98)] to-[rgba(35,35,45,.98)] h-10 w-72 bottom-6 fixed">
+                    <div class="flex justify-center items-center">
+                        <div class="p-2">
+                            <a href="https://www.facebook.com/yourprofile" target="_blank">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                        </div>
+                        <div class="p-2">
+                            <a href="https://www.twitter.com/yourprofile" target="_blank">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                        <div class="p-2">
+                            <a href="https://www.instagram.com/yourprofile" target="_blank">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                        <div class="p-2">
+                            <a href="https://www.linkedin.com/in/yourprofile" target="_blank">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+
+        <div class="flex-1 lg:ml-72 p-6 relative">
+            <main id="main" class="mr-16 overflow-auto h-[calc(100vh-6rem)] transition-all duration-300">
+                <!-- Header -->
+                <header class="bg-gray-800 text-soft_white body-font mb-6">
+                    <div class="mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+                        <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
+                                <path d="M22 12h-4m-2 0a6 6 0 1 0-12 0a6 6 0 0 0 12 0z"></path>
+                                <path d="M4 12H2a10 10 0 0 0 20 0h-2"></path>
+                            </svg>
+                            <span class="ml-3 text-xl text-soft_white">Your Website</span>
+                        </a>
+                    </div>
+                </header>
+
+                <section>
+                    <h1 class="text-soft_white text-left mb-4 font-bold">My Services</h1>
+                    <div class="grid grid-cols-3 gap-8">
+                        <div class="col-span-3 md:col-span-1 bg-gray-800 p-8 text-left">
+                            <h2 class="text-soft_white font-bold">Web Development</h2>
+                            <p class="text-my_gray my-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aut dolore ex explicabo id maiores perferendis recusandae, rerum unde voluptatibus. Accusantium assumenda blanditiis dignissimos esse perferendis quas rerum similique, unde?</p>
+                            <a href="#" class="text-yellow-500 font-extrabold uppercase tracking-widest">Hyper text</a>
+                        </div>
+                        <div class="col-span-3 md:col-span-1 bg-gray-800 p-8 text-left">
+                            <h2 class="text-soft_white font-bold">Web Development</h2>
+                            <p class="text-my_gray my-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aut dolore ex explicabo id maiores perferendis recusandae, rerum unde voluptatibus. Accusantium assumenda blanditiis dignissimos esse perferendis quas rerum similique, unde?</p>
+                            <a href="#" class="text-yellow-500 font-extrabold uppercase tracking-widest">Hyper text</a>
+                        </div>
+                        <div class="col-span-3 md:col-span-1 bg-gray-800 p-8 text-left">
+                            <h2 class="text-soft_white font-bold">Web Development</h2>
+                            <p class="text-my_gray my-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aut dolore ex explicabo id maiores perferendis recusandae, rerum unde voluptatibus. Accusantium assumenda blanditiis dignissimos esse perferendis quas rerum similique, unde?</p>
+                            <a href="#" class="text-yellow-500 font-extrabold uppercase tracking-widest">Hyper text</a>
+                        </div>
+                    </div>
+
+                </section>
+
+                {#
+                <section>
+                    <!-- Add your main content here -->
+                    <div class="p-6 text-my_gray">
+                        <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae dolorem esse molestiae,
+                        omnis possimus quis? Autem facere ipsum nulla officia tempore! Beatae error illum itaque nostrum
+                        officia optio rerum voluptatem?</p>
+                        <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, architecto blanditiis
+                            debitis delectus deleniti dignissimos, dolorum est hic illum impedit inventore ipsam iure
+                            labore nostrum omnis quam tempora tempore vero.</p>
+                        <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut autem dolorem explicabo ipsum
+                            itaque magnam minima? Alias dignissimos ea mollitia quasi! Ducimus ipsum nulla officiis
+                            perspiciatis placeat saepe sint voluptas.</p>
+                        <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci aperiam cum debitis
+                            deleniti eius eum harum id ipsa itaque maxime, nostrum officiis porro praesentium, quia
+                            recusandae sint, sunt vero?</p>
+                        <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aperiam debitis
+                            excepturi explicabo nobis pariatur quos ratione repellat temporibus. Et nobis non nulla
+                            perferendis ullam. Itaque nobis non rem tempore.</p>
+                        <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae dolorem esse molestiae,
+                        omnis possimus quis? Autem facere ipsum nulla officia tempore! Beatae error illum itaque nostrum
+                        officia optio rerum voluptatem?</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, architecto blanditiis
+                            debitis delectus deleniti dignissimos, dolorum est hic illum impedit inventore ipsam iure
+                            labore nostrum omnis quam tempora tempore vero.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut autem dolorem explicabo ipsum
+                            itaque magnam minima? Alias dignissimos ea mollitia quasi! Ducimus ipsum nulla officiis
+                            perspiciatis placeat saepe sint voluptas.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci aperiam cum debitis
+                            deleniti eius eum harum id ipsa itaque maxime, nostrum officiis porro praesentium, quia
+                            recusandae sint, sunt vero?</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aperiam debitis
+                            excepturi explicabo nobis pariatur quos ratione repellat temporibus. Et nobis non nulla
+                            perferendis ullam. Itaque nobis non rem tempore.
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aperiam debitis
+                            excepturi explicabo nobis pariatur quos ratione repellat temporibus. Et nobis non nulla
+                            perferendis ullam. Itaque nobis non rem tempore.
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aperiam debitis
+                            excepturi explicabo nobis pariatur quos ratione repellat temporibus. Et nobis non nulla
+                            perferendis ullam. Itaque nobis non rem tempore.
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aperiam debitis
+                            excepturi explicabo nobis pariatur quos ratione repellat temporibus. Et nobis non nulla
+                            perferendis ullam. Itaque nobis non rem tempore.
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aperiam debitis
+                            excepturi explicabo nobis pariatur quos ratione repellat temporibus. Et nobis non nulla
+                            perferendis ullam. Itaque nobis non rem tempore.
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aperiam debitis
+                            excepturi explicabo nobis pariatur quos ratione repellat temporibus. Et nobis non nulla
+                            perferendis ullam. Itaque nobis non rem tempore.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae dolorem esse molestiae,
+                        omnis possimus quis? Autem facere ipsum nulla officia tempore! Beatae error illum itaque nostrum
+                        officia optio rerum voluptatem?</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, architecto blanditiis
+                            debitis delectus deleniti dignissimos, dolorum est hic illum impedit inventore ipsam iure
+                            labore nostrum omnis quam tempora tempore vero.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut autem dolorem explicabo ipsum
+                            itaque magnam minima? Alias dignissimos ea mollitia quasi! Ducimus ipsum nulla officiis
+                            perspiciatis placeat saepe sint voluptas.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci aperiam cum debitis
+                            deleniti eius eum harum id ipsa itaque maxime, nostrum officiis porro praesentium, quia
+                            recusandae sint, sunt vero?</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aperiam debitis
+                            excepturi explicabo nobis pariatur quos ratione repellat temporibus. Et nobis non nulla
+                            perferendis ullam. Itaque nobis non rem tempore.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae dolorem esse molestiae,
+                        omnis possimus quis? Autem facere ipsum nulla officia tempore! Beatae error illum itaque nostrum
+                        officia optio rerum voluptatem?</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, architecto blanditiis
+                            debitis delectus deleniti dignissimos, dolorum est hic illum impedit inventore ipsam iure
+                            labore nostrum omnis quam tempora tempore vero.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut autem dolorem explicabo ipsum
+                            itaque magnam minima? Alias dignissimos ea mollitia quasi! Ducimus ipsum nulla officiis
+                            perspiciatis placeat saepe sint voluptas.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci aperiam cum debitis
+                            deleniti eius eum harum id ipsa itaque maxime, nostrum officiis porro praesentium, quia
+                            recusandae sint, sunt vero?</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aperiam debitis
+                            excepturi explicabo nobis pariatur quos ratione repellat temporibus. Et nobis non nulla
+                            perferendis ullam. Itaque nobis non rem tempore.
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aperiam debitis
+                            excepturi explicabo nobis pariatur quos ratione repellat temporibus. Et nobis non nulla
+                            perferendis ullam. Itaque nobis non rem tempore.
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aperiam debitis
+                            excepturi explicabo nobis pariatur quos ratione repellat temporibus. Et nobis non nulla
+                            perferendis ullam. Itaque nobis non rem tempore.
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aperiam debitis
+                            excepturi explicabo nobis pariatur quos ratione repellat temporibus. Et nobis non nulla
+                            perferendis ullam. Itaque nobis non rem tempore.
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aperiam debitis
+                            excepturi explicabo nobis pariatur quos ratione repellat temporibus. Et nobis non nulla
+                            perferendis ullam. Itaque nobis non rem tempore.
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aperiam debitis
+                            excepturi explicabo nobis pariatur quos ratione repellat temporibus. Et nobis non nulla
+                            perferendis ullam. Itaque nobis non rem tempore.</p>
+                    </div>
+                </section>
+#}
+                <!-- Footer -->
+                <footer class="body-font bg-gray-800 mt-6">
+                    <div class="px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+                        <p class="text-sm text-center sm:text-left text-soft_white">© 2023 Your Website —
+                            <a href="https://twitter.com/knyttneve" rel="noopener noreferrer" class="text-my_gray ml-1" target="_blank">@yourwebsite</a>
+                        </p>
+                    </div>
+                </footer>
+            </main>
+            <!-- Menu -->
+            <nav id="menu" class="w-16 transition-all duration-300 absolute right-0 top-0 h-full text-white bg-[rgba(30,30,40,1)]/80 overflow-auto flex justify-center">
+                <div id="burger" class="space-y-2 absolute top-6 right-4 opacity-60" onclick="expandMenu()">
+                    <svg class="w-[30px] h-[30px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"></path>
+                    </svg>
+                </div>
+
+                <div id="burger-x" class="space-y-2 absolute top-6 right-4 opacity-60 hidden" onclick="expandMenu()">
+                    <svg class="w-[30px] h-[30px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="12" fill="none" viewBox="0 0 16 12">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h14M1 6h14M1 11h7"></path>
+                  </svg>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+{% endblock %}
+{% block script %}
+<script>
+    function expandMenu() {
+        const menu = document.getElementById('menu');
+        const main = document.getElementById('main');
+        const burger = document.getElementById('burger');
+        const cross = document.getElementById('burger-x');
+
+        if (menu.classList.contains('w-60')) {
+            menu.classList.remove('w-60');
+            menu.classList.add('w-16');
+            main.classList.remove("brightness-75");
+
+            burger.classList.remove('hidden');
+            cross.classList.add('hidden');
+        } else {
+            menu.classList.remove('w-16');
+            menu.classList.add('w-60');
+            main.classList.add("brightness-75");
+
+            burger.classList.add('hidden');
+            cross.classList.remove('hidden');
+        }
+    }
+</script>
+{% endblock %}
