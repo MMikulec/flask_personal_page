@@ -1,0 +1,641 @@
+{% extends "base.jinja2" %}
+{% block head %}
+    <title>Blog</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+
+{% endblock %}
+
+{% block content %}
+    <div class="container mx-auto flex bg-gradient-to-r dark:bg-gradient-to-r from-light_body dark:from-body to-[rgba(190,190,200,1)] dark:to-[rgba(35,35,45,1)] min-h-[calc(100vh-3rem)]">
+        <!-- Info bar -->
+        <aside id="info-bar" class="w-72 z-50 shadow-2xl dark:shadow-none transition-opacity duration-300  bg-[rgba(220,220,230,1)] dark:bg-[rgba(30,30,40,1)] text-soft dark:text-soft_white fixed overflow-auto hidden opacity-0 lg:opacity-100 lg:block top-6 bottom-6">
+            <div class="">
+                <!-- Profile info -->
+                <div class="bg-gradient-to-br dark:bg-gradient-to-br from-[rgba(230,230,240,.88)] dark:from-[rgba(37,37,50,.88)] to-[rgba(240,240,250,.88)] dark:to-[rgba(35,35,45,.88)] h-64 w-72 p-6 fixed">
+                    <!-- Profile image -->
+                    <div class="group rounded-full w-[90px] h-[90px] mx-auto my-4 flex items-center justify-center relative">
+                        <img src="{{ url_for('static', filename='personal/jondoe.jpg') }}" class="rounded-full w-[90px] h-[90px]" alt="">
+                        <svg class="invisible group-hover:visible opacity-40 hover:opacity-100 hover:duration-300 absolute w-[30px] h-[30px] text-soft_white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
+                            <path d="M18 .989a1.016 1.016 0 0 0-.056-.277c-.011-.034-.009-.073-.023-.1a.786.786 0 0 0-.066-.1.979.979 0 0 0-.156-.224l-.007-.01a.873.873 0 0 0-.116-.073.985.985 0 0 0-.2-.128.959.959 0 0 0-.231-.047A.925.925 0 0 0 17 0h-4a1 1 0 1 0 0 2h1.664l-3.388 3.552a1 1 0 0 0 1.448 1.381L16 3.5V5a1 1 0 0 0 2 0V.989ZM17 12a1 1 0 0 0-1 1v1.586l-3.293-3.293a1 1 0 0 0-1.414 1.414L14.586 16H13a1 1 0 0 0 0 2h4a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1ZM3.414 2H5a1 1 0 0 0 0-2H1a1 1 0 0 0-1 1v4a1 1 0 0 0 2 0V3.414l3.536 3.535A1 1 0 0 0 6.95 5.535L3.414 2Zm2.139 9.276L2 14.665V13a1 1 0 1 0-2 0v4c.006.046.015.09.027.135.006.08.022.16.048.235a.954.954 0 0 0 .128.2.95.95 0 0 0 .073.117l.01.007A.983.983 0 0 0 1 18h4a1 1 0 0 0 0-2H3.5l3.436-3.276a1 1 0 0 0-1.38-1.448h-.003Z"></path>
+                        </svg>
+                    </div>
+                    <!-- Profile text -->
+                    <h5 class="text-soft dark:text-soft_white font-bold text-sm dark:text-sm">Marek Mikulec</h5>
+                    <div class="text-my dark:text-my_gray text-sm dark:text-sm">Developer<br>IT specialist</div>
+                </div>
+
+                <!-- Scrolled info -->
+                <div class="overflow-auto p-6 pt-72 pb-10">
+                    <!-- About me -->
+                    <ul class="">
+                        <li class="flex justify-between">
+                            <h6 class="text-soft dark:text-soft_white font-medium">Residence:</h6>
+                            <span class="text-my dark:text-my_gray">Slovakia</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <h6 class="text-soft dark:text-soft_white font-medium">Age:</h6>
+                            <span class="text-my dark:text-my_gray">32</span>
+                        </li>
+                    </ul>
+
+                    <div class="w-full h-[1px] my-6 bg-gray-700 dark:bg-gray-700"> </div> <!-- line -->
+
+                    <!-- Skills -->
+                    <div class="flex justify-between mb-2 text-sm font-bold dark:text-sm">
+                            <h6 class="text-soft dark:text-soft_white">Python:</h6>
+                            <span class="text-my dark:text-my_gray">85%</span>
+                    </div>
+                    <div class="w-full h-1 mb-4 bg-gray-700 dark:bg-gray-700">
+                      <div class="bg-yellow-600 dark:bg-yellow-500 h-1 " style="width: 85%"></div>
+                    </div>
+
+                    <div class="flex justify-between mb-2 text-sm font-bold dark:text-sm">
+                            <h6 class="text-soft dark:text-soft_white">HTML CSS JS:</h6>
+                            <span class="text-my dark:text-my_gray">65%</span>
+                    </div>
+                    <div class="w-full h-1 mb-4 bg-gray-700 dark:bg-gray-700">
+                      <div class="bg-yellow-600 dark:bg-yellow-500 h-1 " style="width: 65%"></div>
+                    </div>
+
+                    <div class="flex justify-between mb-2 text-sm font-bold dark:text-sm">
+                            <h6 class="text-soft dark:text-soft_white">Tailwind:</h6>
+                            <span class="text-my dark:text-my_gray">45%</span>
+                    </div>
+                    <div class="w-full h-1 mb-4 bg-gray-700 dark:bg-gray-700">
+                      <div class="bg-yellow-600 dark:bg-yellow-500 h-1 " style="width: 45%"></div>
+                    </div>
+
+                    <div class="w-full h-[1px] my-12 bg-gray-700 dark:bg-gray-700"> </div> <!-- line -->
+
+                    <!-- Work with -->
+                    <div class="flex justify-center items-center">
+                        <!-- Python --><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" class="fill-my_gray dark:fill-my"><path d="M9.585 11.692h4.328s2.432.039 2.432-2.35V5.391S16.714 3 11.936 3C7.362 3 7.647 4.983 7.647 4.983l.006 2.055h4.363v.617H5.92s-2.927-.332-2.927 4.282 2.555 4.45 2.555 4.45h1.524v-2.141s-.083-2.554 2.513-2.554zm-.056-5.74a.784.784 0 1 1 0-1.57.784.784 0 1 1 0 1.57z"></path><path d="M18.452 7.532h-1.524v2.141s.083 2.554-2.513 2.554h-4.328s-2.432-.04-2.432 2.35v3.951s-.369 2.391 4.409 2.391c4.573 0 4.288-1.983 4.288-1.983l-.006-2.054h-4.363v-.617h6.097s2.927.332 2.927-4.282-2.555-4.451-2.555-4.451zm-3.981 10.436a.784.784 0 1 1 0 1.57.784.784 0 1 1 0-1.57z"></path></svg>
+                        <!-- Flask --><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" class="fill-my_gray dark:fill-my"><path d="M13.78 18.29c0 .12.15 0 0 0zm-3.35-2.7c.39.17-.31-.6 0 0zm-5.03.28c.15.26 0-.12 0 0zm5.6.39c-.27-.42-.2.06 0 .32.48.47.18-.26 0-.32z"></path><path d="M20.24 19.06c-.53.63-1-.07-1.63.13-1.1 0 .09-.5.06-1-.58-.45-1.24.61-1.62.9a10.75 10.75 0 0 1-2.67-.83 8 8 0 0 1-2.6-1.94 8.36 8.36 0 0 1-1.87-2.84 21.36 21.36 0 0 1-.84-5.74c.07-1.3 1.44.14 2-.33-.21-.67-1.29-.88-1.89-1.16-.58 0-.79-.55-1.4-.59 0-.73-1.13-.33-1.56-.84.42-1.08-1.37 0-1.23-.91.58-1.2-1.78-1-.8.06.95.54-.93.93-.38 1.29a.59.59 0 0 1-.53.86c-.74.07-.67 1.09.06.55.81-.25.14.11-.25.18a1.3 1.3 0 0 0-.95 1.9 35.32 35.32 0 0 1 1 3.42A16.25 16.25 0 0 0 5.84 17 9.78 9.78 0 0 0 8 19a9.89 9.89 0 0 0 2.43 1.22 18 18 0 0 0 4.73.73 16.53 16.53 0 0 0 2.9-.24c.87.09 1.49-.65 2.26-.26.48-.42 1.16-.23 1.63-.54.32-1.22-1.22-.27-1.71-.85zm-1.74-.74c-.22 0 .05-.34 0 0zm-7.63-11c-.1 0-.08-.12-.16-.15-.8-.37.39-.23.16.19zm6.76 11.39c-.35-.08.28-.25 0 0zm-2.81.11c-.23 0 .18-.14 0 0zm-1.88-1.18c-.13 0 0-.13 0 0zm-.22-.17c-.36 0-.09-.23 0 0zm-.42-.36c-.33.08 0-.34 0 0zm-6-11.66c-.53-.28.11.33-.34.32-.24 0-.69-.52-.54-.78.3.16.83.21.92.5zm-.92-.81h-.11c-.03-.27.87-.06.15.04zm-1.02-.79c-.42-.19 0-.93.44-.58.51.73-.95-.08-.44.58zm.49.69c-.27.11.16-.21 0 0zm.48.92c.6.46-.34 0-.72.29-.61.06.66-.34.72-.29zm.17.6c.35 0 1.88-.69 1.37-.07.47.55.1.37-.21 0 .28.19.06 1-.37.45s-.5-.18-.17.21C5.8 6 4.88 6.28 4.21 6.5c-.43-.04 1.13-.37 1.29-.44zM3.58 7.51c-.16.4.24.53.62.6.62-.17-.41-.28.06-.44.26 0-.82-.26.08-.38S6.09 6.77 7 6.58a8.71 8.71 0 0 1 2.35-.19c.3.35-.23.94-.77 1a8.61 8.61 0 0 1-2 .39c-.8-.1-1.37.61-2.19.7.22-.4-.18-.14-.59-.16.21.82-1.47-.21-.48-.41-.74-.26-.75.52-.67 1-.65-.91.07-1.29.93-1.4zm1.88 1.08c-.22-.05.17-.2 0 0zm-.72.88s-.34-.08-.2-.17c1 .13-.9-.33.13-.22.66-.02.44.36.07.39zm.33.17c-.12.12 0-.24 0 0zm-.71 0c-.44-.09.21-.22 0 0zm-.06 1.43c-.07.1-.1-.08 0 0zM4 10.9c-.55-.19 0-.21 0 0zm-.12 1.28c-.26-.09-.25-.5-.37-.72-.38-1.03.41.4.33.72zm.23-1.49c-.69-.08-.05-.49 0 0zm0-.34h-.09c-.76-.35.45-.17-.02 0zM4 9.56c-.61-.31.58-.36 0 0zm.21.26c-.34.06.05-.32 0 0zm-1.3.07c-.12.08 0-.23 0 0zM3 9.75c-.16 0 0-.27 0 0zm.08-1c-.4-.1.33-.25 0 0zm.26 2c-.44-.1-.12-.65 0 0zm.3 1.25c.42.51.26.79.69 1.41-.56-.35-.67-1.2-1-1.75-.41-.9.23-.01.31.34zm4.09 6.38c-.34-.07-.57-.43-.81-.66a4.88 4.88 0 0 1-1.57-1.94 12.26 12.26 0 0 1-1.46-2.38c-.41-.92.25.07.35.42.21.68.88 1.07.94 1.52.74.42.36 1.12 1 1.31.27-.14.3.84.89.64-.33.15.13.33.3.61.35-.05 1.17.82.36.52zM4.62 12c-.31-.07.33-.11 0 0zm.2.47c-.55-.14.52-.2 0 0zm1.39.47c.4-.17.16.78.55.9.76 1-.53 0-1-.07.06 0-.38-.12-.19-.16-.14-.15-.45-.66.26-.32.6.24.65.06.38-.39zm1.31 1.76c0 .15-.72.13-.06.42-.38 0-.5 0 0 .3-.22.17.43.31.21.57.66.52-.12.13-.4-.08s-.85-.35-.75-.5c.81.42.21 0-.15-.3.65.16-.51-.48.1-.31.19.05-.27-.38.33-.07-.54-.52.47-.12.72-.07zm.48-.17c-.61-.14 0-.34 0 0zm-.17 2c-.61-.26.39 0 0 0zm-.45-.17c-.71-.23.52 0 0 0zm-.09.11c-.22 0 0-.17 0 0zm-1.08-1.55c-.72-.3-.2-.33 0 0zm-.54-.35c-.58-.33-.08-.33 0 0zm0 .65c-.57-.44-.07-.25 0 0zm-.15-1.34c-.35 0 .13-.2 0 0zM8 17.38c-.51-.15 0-.14 0 0zM7.63 17h-.16c-.68-.54.31-.38.75-.14.97.14-.22.39-.59.14zm2.7 1.65c-.68-.16.16-.27 0 0zm-.17-.52c-.05 0-.1-.11 0 0zm-.86-1.34c-.59-.14.21-.19.36 0 1.02.21-.06.26-.36 0zM9.51 18H9.4l-.13-.06c-.56-.59 1.19.28.24.06zm-.28.69c-.15.06 0-.14 0 0zm.29-1.19-.16-.05c-.66-.45.84.09.16 0zm.16 1.72c-.4-.16.26-.25 0 0zm.1-.74c-.58-.14.36-.13 0 0zm.13-.61c-.44-.06.05-.21 0 0zm-.72-.88c.46.06.47.27 0 .14-.09 0-.24 0-.28-.17-.76-.5.03-.25.28-.02zm-.06 2c-.2.12 0-.22 0 0zm-.31-.51c-.53 0 .4-.26 0 0zm-.12.35c-.26-.1.17-.08 0 0zm.3-.89c-.52-.14.25-.18 0 0zm-.16-.57c-.28 0-.06-.16 0 0zm-.54-.95c-.57-.46 1.18.38 0 0zm-.06.19c0 .06-.11-.09 0 0zm3.65 3.78a9.4 9.4 0 0 1-2.56-.85l-.33-.2c-.57-.31-.5-.38.06-.07.19.16 1.59.73.93.35-.29-.07-1.9-.95-.84-.57a20.92 20.92 0 0 0 2.74 1.21 7.14 7.14 0 0 0 2.43.15c.65.33 1.33-.08 2 .21a13.05 13.05 0 0 1-4.45-.23zm-1.25-.7c-.51-.09.16-.23 0 0zm.73-1c-.58-.11.6-.23 0 0zm.84 1.31c1 .37-.6.12-.93-.09-.92-.38.72.09.93.09zm-1.06-1.1c-.81-.12.9 0 0 0zm1.52.85c-.29.23 0-.3 0 0zm.29.05c-.15.06 0-.17 0 0zm.27-.38c-.16.2 0-.23 0 0zm.31 0c-.45.17.47-.39 0 0zm.14 0c.49-.42.51-.22.5.13-.43.48-.17-.2-.44.06s-.19-.1-.06-.17zm.83.45c-.5 0 .51-.54 0 0zm0 .18c-.2.05 0-.13 0 0zm-.16-.35c-.39-.26.94-.61 0 0zm.57.09h-.08c-.03-.23.54-.27.08.02zm.15.19c-.3-.08.47-.4 0 0zm.36-.1c-.51.18.48-.4 0 0zm.22.11-.12.08c-.23-.14.71-.48.12-.07zm-.43-.53c-.54-.18-1.4-.76-2-.37-.8.51.41-.56-.24-.08-.66.79-.45-.5-1.09-.11 0-.12-.57-.16-.17-.37-.36 0-.13-.05 0-.34-.16 0-1 0-1.36-.29-.4-.52.07-.3.48-.23-.67.12.24.5.68.29-.2-.09-.43-.52-1-.9a18.83 18.83 0 0 0-2.13-1c-.84-.5.18-.18.47.08.84.37.51-.51 0-.74-.54 0-.67-.59-1.1-.56.67.11 1.14-.17.39-.85s.3.63-.11.44c-.19-.25-.05-.6-.65-.73 0 .23-.08.58-.21.1-.17 0-.36.21-.5-.28.13-.57-.56-.7-.67-1.06.6.38.87.08.45-.33s-.33-.11-.49 0c-.59.6-.06-1-.32-.56-.26 0-.11.29-.1.65-.86-.21.2.45.45.81-.39-.4-.32.31-.65 0-.11-.3-.12-.77-.67-.85.62-.22-.36-.65-.28-.67.35-.32.4-.76.82-.07-.53 0 0 .88.12.6 0-.47.22-1-.59-1.19-.24.32-.65-.63-.18-.43-.06-.63.74-.26.69-.53.42-.18-.5-.77 0-1 .38.24 1.36-.36.7-.44.42 0 .75.18.79-.24.33.07 1.24.36.42-.09a3.45 3.45 0 0 1 1.13-.25c.79-.61.63 1 .45 1.45.3-.21.24.94.14 1.37.16-.22.23.36 0 .77 0-.07.4-.13.12.35-.22-.47-.31 1-.17.32.37-.61.28 0 .39.24.08.55.32 1.06.4 1.56.35.35-.15.11-.15.59.11-.14.58.19.57.68 0-.78.09-.18.47 0a5.48 5.48 0 0 0 1 1.42c.37.43 0 .13.14.39a3.19 3.19 0 0 0 2.09 1.28 1.46 1.46 0 0 0 1.57.7c-.6.37 1.68.47.91.67-.23.16-.62-.2-1.01-.18zM8.7 15.89c-.24 0 0-.2 0 0zm.38.22c-.18 0-.12-.24 0 0zm-2.61-3.65c-.24-.07.1-.09 0 0zm-.59 0c-.26 0 0-.34 0 0zm-.3-.08c-.1.05 0-.11 0 0zm11 8.25c-.39-.07.32-.22 0 0zm.73-1.05h-.3c.06-.45 1.33-.1 1.85-.09-.16.34-1.13.04-1.55.13zm2 0c-.27 0 .12-.32 0 0zm1-.09c-.25.13 0-.3 0 0zm.48.11c-.52-.12.24-.12.4-.14.94.02 0 .16-.47.16z"></path><path d="M6.51 7.11c1-.2-.38-.33-.69 0 .18.13.41-.21.69 0zm-.82.13c0 .19.18-.22 0 0zm2.62-.48c.67-.11.11-.41-.09.1.07.14.11-.05.09-.1zm-.62.1c.93.36-.05-1 0 0zm-2.92.93a.51.51 0 0 1 .33.1c.75.52-.1-.84-.33-.1z"></path><path d="M4.81 7.43c.16.13.29-.21 0 0zm.37.01.14.12c.68.06-.11-.46-.14-.12zM10.69 16c.09.3 0-.39 0 0zm-4.78-5c.1.18.18-.18 0 0zm.09.61c.19.34 0-.51 0 0zm.21-.49c.33.21-.28-.52 0 0zm-.41-.82c.07.15.24.16.37.2 1.32.61-.95-1-.37-.2zm.54 1.43c.31.53.18-.37 0 0zm.48-.16c.37.92-.23-.12-.3-.43a2.11 2.11 0 0 0 .28 1c.34.51.19-.28.55.23-.2-.45.1-.2.06-.4s-1-1.17-.59-.4zm.36 1.78c.09.31.18 0 0 0zM5.85 9c.06.14.11 0 0 0zm.67.42c.32.41.17-.36 0 0zm-.89 1.14.14.15c.99.29-1.05-.95-.14-.15zm.7-.37c1 .41-.09-.27-.44-.2.11.13.32.07.44.2zm-.18-.44c.18.18.82.51.31.06.32-.06 0-.16-.24-.32-.44-.67.07.06-.07.26z"></path><path d="M5.51 10.64c-.53-.44.16.21-.06.2-.55-.4-.32-.11 0 .2.33.5.6-.3.06-.4zm2.14.64c.12.11-.06-.68 0 0zm1.02-3.5c0 .12.07-.1 0 0zM9 12.47c0 .21 0-.18 0 0zm-.29-1.22c.08.46.1-.78 0 0zm.14.22v.1c.21-.51.04-.79 0-.1zm-.1-2.7c-.14.7-.27.41-.08-.11-.05-.67-.45.41-.27.72.29.47.6-1.16.35-.61zm1.01 5.98c.13.35.11-.42 0 0zm-1.35-4.28c0 .2 0-.14 0 0zm.64 1.7c0 .26.11-.38 0 0zM9.5 14l.07.11c.14-.49-.36-.79-.07-.11zm-1.56-.52c.27.22-.13-.23 0 0zm1.23-.85c.08.29 0-.42 0 0zM8.14 9.81c.15.33-.05-.27 0 0z"></path><path d="M8.3 10.23c.24.34-.26-.64 0 0zm-.06 1.15c-.13-1-.42.45 0 .69.13.34.25.2.3-.19-.32 0 .08-.62-.3-.5z"></path></svg>
+                        <!-- Docker --><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" class="fill-my_gray dark:fill-my"><path d="M20.17 9.82a4.76 4.76 0 0 0-.84.07 3.12 3.12 0 0 0-1.43-2.14l-.28-.16-.19.27a3.7 3.7 0 0 0-.51 1.19 2.84 2.84 0 0 0 .33 2.22 4.11 4.11 0 0 1-1.45.35H2.63a.63.63 0 0 0-.63.62 9.6 9.6 0 0 0 .58 3.39 5 5 0 0 0 2 2.6 8.86 8.86 0 0 0 4.42.95 13.27 13.27 0 0 0 2.42-.18 10.09 10.09 0 0 0 3.19-1.15A8.9 8.9 0 0 0 16.78 16a11.94 11.94 0 0 0 2.13-3.67h.19a3.08 3.08 0 0 0 2.23-.84 2.36 2.36 0 0 0 .59-.87l.08-.22-.2-.16a2.69 2.69 0 0 0-1.63-.42z"></path><path d="M5.61 9.35H3.85a.16.16 0 0 0-.16.15v1.58a.16.16 0 0 0 .16.15h1.76a.16.16 0 0 0 .16-.15V9.5a.16.16 0 0 0-.16-.15zm2.44 0H6.28a.16.16 0 0 0-.16.15v1.58a.16.16 0 0 0 .16.15h1.77a.15.15 0 0 0 .15-.15V9.5a.15.15 0 0 0-.15-.15zm2.47 0H8.75a.15.15 0 0 0-.15.15v1.58a.15.15 0 0 0 .15.15h1.77a.15.15 0 0 0 .15-.15V9.5a.15.15 0 0 0-.15-.15zm.67 0a.15.15 0 0 0-.19.15v1.58a.15.15 0 0 0 .15.15H13a.15.15 0 0 0 .15-.15V9.5a.15.15 0 0 0-.15-.15zM6.28 7.09H8a.16.16 0 0 1 .16.16v1.56A.16.16 0 0 1 8 9H6.28a.15.15 0 0 1-.15-.15V7.24a.15.15 0 0 1 .15-.15zm2.47 0h1.77a.15.15 0 0 1 .15.15v1.57a.16.16 0 0 1-.16.16H8.75a.15.15 0 0 1-.15-.15V7.24a.15.15 0 0 1 .15-.15zm2.44 0H13a.15.15 0 0 1 .15.15v1.57A.15.15 0 0 1 13 9h-1.81a.16.16 0 0 1-.19-.19V7.24a.15.15 0 0 1 .19-.15z"></path><rect x="11.04" y="4.82" width="2.07" height="1.88" rx=".15"></rect><path d="M13.65 9.35a.15.15 0 0 0-.15.15v1.58a.15.15 0 0 0 .15.15h1.77a.15.15 0 0 0 .15-.15V9.5a.15.15 0 0 0-.15-.15z"></path></svg>
+                        <!-- MongoDB --><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" class="fill-my_gray dark:fill-my"><path d="M13.74 4.23c-.84-1-1.57-2-1.71-2.22H12c-.14.21-.87 1.22-1.71 2.22-7.2 9.19 1.14 15.39 1.14 15.39l.07.05c.06.95.22 2.33.22 2.33h.62s.15-1.37.21-2.33l.07-.06s8.32-6.19 1.12-15.38zM12 19.48a3.48 3.48 0 0 1-.48-.48L12 9l.45 10a3.57 3.57 0 0 1-.45.48z"></path></svg>
+                        <!-- HTML5 --><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" class="fill-my_gray dark:fill-my"><path d="M4.136 3.012h15.729l-1.431 16.15-6.451 1.826-6.414-1.826-1.433-16.15zm5.266 7.302-.173-2.035 7.533.002.173-1.963-9.87-.002.522 5.998h6.835l-.243 2.566-2.179.602-2.214-.605-.141-1.58H7.691l.247 3.123L12 17.506l4.028-1.08.558-6.111H9.402v-.001z"></path></svg>
+                        <!-- CSS3 --><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" class="fill-my_gray dark:fill-my"><path d="M4.192 3.143h15.615l-1.42 16.034-6.404 1.812-6.369-1.813L4.192 3.143zM16.9 6.424l-9.8-.002.158 1.949 7.529.002-.189 2.02H9.66l.179 1.913h4.597l-.272 2.62-2.164.598-2.197-.603-.141-1.569h-1.94l.216 2.867L12 17.484l3.995-1.137.905-9.923z"></path></svg>
+                        <!-- Tailwind --><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" class="fill-my_gray dark:fill-my"><path d="M18.5 9.51a4.22 4.22 0 0 1-1.91-1.34A5.77 5.77 0 0 0 12 6a4.72 4.72 0 0 0-5 4 3.23 3.23 0 0 1 3.5-1.49 4.32 4.32 0 0 1 1.91 1.35A5.77 5.77 0 0 0 17 12a4.72 4.72 0 0 0 5-4 3.2 3.2 0 0 1-3.5 1.51zm-13 4.98a4.22 4.22 0 0 1 1.91 1.34A5.77 5.77 0 0 0 12 18a4.72 4.72 0 0 0 5-4 3.23 3.23 0 0 1-3.5 1.49 4.32 4.32 0 0 1-1.91-1.35A5.8 5.8 0 0 0 7 12a4.72 4.72 0 0 0-5 4 3.2 3.2 0 0 1 3.5-1.51z"></path></svg>
+                    </div>
+
+                </div>
+
+                <!-- Social media -->
+                <div class="bg-gradient-to-br dark:bg-gradient-to-br from-[rgba(230,230,240,.88)] dark:from-[rgba(37,37,50,.98)] to-[rgba(240,240,250,.88)] dark:to-[rgba(35,35,45,.98)] h-10 w-72 bottom-6 fixed">
+                    <div class="flex justify-center items-center">
+                        <div class="p-2">
+                            <a href="https://www.facebook.com/yourprofile" target="_blank">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="fill-soft dark:fill-soft_white"><path d="M12.001 2.002c-5.522 0-9.999 4.477-9.999 9.999 0 4.99 3.656 9.126 8.437 9.879v-6.988h-2.54v-2.891h2.54V9.798c0-2.508 1.493-3.891 3.776-3.891 1.094 0 2.24.195 2.24.195v2.459h-1.264c-1.24 0-1.628.772-1.628 1.563v1.875h2.771l-.443 2.891h-2.328v6.988C18.344 21.129 22 16.992 22 12.001c0-5.522-4.477-9.999-9.999-9.999z"></path></svg>
+                            </a>
+                        </div>
+                        <div class="p-2">
+                            <a href="https://www.twitter.com/yourprofile" target="_blank">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="fill-soft dark:fill-soft_white"><path d="M19.633 7.997c.013.175.013.349.013.523 0 5.325-4.053 11.461-11.46 11.461-2.282 0-4.402-.661-6.186-1.809.324.037.636.05.973.05a8.07 8.07 0 0 0 5.001-1.721 4.036 4.036 0 0 1-3.767-2.793c.249.037.499.062.761.062.361 0 .724-.05 1.061-.137a4.027 4.027 0 0 1-3.23-3.953v-.05c.537.299 1.16.486 1.82.511a4.022 4.022 0 0 1-1.796-3.354c0-.748.199-1.434.548-2.032a11.457 11.457 0 0 0 8.306 4.215c-.062-.3-.1-.611-.1-.923a4.026 4.026 0 0 1 4.028-4.028c1.16 0 2.207.486 2.943 1.272a7.957 7.957 0 0 0 2.556-.973 4.02 4.02 0 0 1-1.771 2.22 8.073 8.073 0 0 0 2.319-.624 8.645 8.645 0 0 1-2.019 2.083z"></path></svg>
+                            </a>
+                        </div>
+                        <div class="p-2">
+                            <a href="https://www.instagram.com/yourprofile" target="_blank">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="fill-soft dark:fill-soft_white"><path d="M20.947 8.305a6.53 6.53 0 0 0-.419-2.216 4.61 4.61 0 0 0-2.633-2.633 6.606 6.606 0 0 0-2.186-.42c-.962-.043-1.267-.055-3.709-.055s-2.755 0-3.71.055a6.606 6.606 0 0 0-2.185.42 4.607 4.607 0 0 0-2.633 2.633 6.554 6.554 0 0 0-.419 2.185c-.043.963-.056 1.268-.056 3.71s0 2.754.056 3.71c.015.748.156 1.486.419 2.187a4.61 4.61 0 0 0 2.634 2.632 6.584 6.584 0 0 0 2.185.45c.963.043 1.268.056 3.71.056s2.755 0 3.71-.056a6.59 6.59 0 0 0 2.186-.419 4.615 4.615 0 0 0 2.633-2.633c.263-.7.404-1.438.419-2.187.043-.962.056-1.267.056-3.71-.002-2.442-.002-2.752-.058-3.709zm-8.953 8.297c-2.554 0-4.623-2.069-4.623-4.623s2.069-4.623 4.623-4.623a4.623 4.623 0 0 1 0 9.246zm4.807-8.339a1.077 1.077 0 0 1-1.078-1.078 1.077 1.077 0 1 1 2.155 0c0 .596-.482 1.078-1.077 1.078z"></path><circle cx="11.994" cy="11.979" r="3.003"></circle></svg>
+                            </a>
+                        </div>
+                        <div class="p-2">
+                            <a href="https://www.linkedin.com/in/yourprofile" target="_blank">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="fill-soft dark:fill-soft_white"><path d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zM8.339 18.337H5.667v-8.59h2.672v8.59zM7.003 8.574a1.548 1.548 0 1 1 0-3.096 1.548 1.548 0 0 1 0 3.096zm11.335 9.763h-2.669V14.16c0-.996-.018-2.277-1.388-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248h-2.667v-8.59h2.56v1.174h.037c.355-.675 1.227-1.387 2.524-1.387 2.704 0 3.203 1.778 3.203 4.092v4.71z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 lg:ml-72 p-6 relative z-40" onclick="closeMenu()">
+            <div id="main" class="mr-16 transition-all duration-300 lg:brightness-100">
+
+                <!-- Header -->
+                <header style="background-image: url('{{url_for('static',filename='img/code-background.jpg') }}')" class="bg-no-repeat dark:bg-no-repeat bg-center dark:bg-center text-soft dark:text-soft_white body-font mb-6 h-72">
+                    <div class="mx-auto flex flex-wrap p-5 flex-col md:items-start items-center">
+                        <a class="flex title-font font-medium items-center text-gray-900 dark:text-gray-900 mb-4 md:mb-0">
+                            <!-- Header text -->
+                            <span class="ml-3 text-5xl text-soft_white dark:text-soft_white font-extrabold text-left">Marek Mikulec <br> Full Stack Developer</span>
+                        </a>
+                        <p class="ml-3 text-xl text-soft_white dark:text-soft_white">&lt;<span class="text-yellow-600">code</span>&gt; <span class="typewriter" data-txt='["Hello, world!", "Debugging the Future", "Syntax of Success"]'></span> &lt;<span class="text-yellow-600">code</span>&gt;</p>
+                    </div>
+                </header>
+
+                <!-- Section My Services -->
+                <section class="my-6">
+                    <h2 class="text-soft dark:text-soft_white text-left dark:text-left mb-4 font-bold">My Services</h2>
+                    <div class="grid grid-cols-3 gap-8">
+                        <div class="shadow-xl dark:shadow-none col-span-3 md:col-span-1 bg-gray-100 dark:bg-gray-800 p-8 text-left dark:text-left">
+                            <h2 class="text-soft dark:text-soft_white font-bold">Web Development</h2>
+                            <p class="text-my dark:text-gray-400 my-4">I offer top-notch web development services that bring your ideas to life. With a focus on user experience and performance, I create web applications that drive business success.</p>
+                            <a href="#" class="text-yellow-600 dark:text-yellow-500 font-extrabold uppercase tracking-widest">Hyper text</a>
+                        </div>
+                        <div class="shadow-xl dark:shadow-none col-span-3 md:col-span-1 bg-gray-100 dark:bg-gray-800 p-8 text-left dark:text-left">
+                            <h2 class="text-soft dark:text-soft_white font-bold">API Integration</h2>
+                            <p class="text-my dark:text-gray-400 my-4">I offer API integration services that connect your web applications with third-party platforms and services. I create seamless workflows that automate processes and enhance the user experience.</p>
+                            <a href="#" class="text-yellow-600 dark:text-yellow-500 font-extrabold uppercase tracking-widest">Hyper text</a>
+                        </div>
+                        <div class="shadow-xl dark:shadow-none col-span-3 md:col-span-1 bg-gray-100 dark:bg-gray-800 p-8 text-left dark:text-left">
+                            <h2 class="text-soft dark:text-soft_white font-bold">UX/UI Design</h2>
+                            <p class="text-my dark:text-gray-400 my-4">I design intuitive and engaging user interfaces that enhance user satisfaction. My user-centric approach ensures your digital products are easy to use and visually appealing.</p>
+                            <a href="#" class="text-yellow-600 dark:text-yellow-500 font-extrabold uppercase tracking-widest">Hyper text</a>
+                        </div>
+                        <div class="shadow-xl dark:shadow-none col-span-3 md:col-span-1 bg-gray-100 dark:bg-gray-800 p-8 text-left dark:text-left">
+                            <h2 class="text-soft dark:text-soft_white font-bold">Custom Software Development</h2>
+                            <p class="text-my dark:text-gray-400 my-4">I provide custom software development services tailored to your unique business needs. I create software solutions that improve operational efficiency and drive business growth.</p>
+                            <a href="#" class="text-yellow-600 dark:text-yellow-500 font-extrabold uppercase tracking-widest">Hyper text</a>
+                        </div>
+                        <div class="shadow-xl dark:shadow-none col-span-3 md:col-span-1 bg-gray-100 dark:bg-gray-800 p-8 text-left dark:text-left">
+                            <h2 class="text-soft dark:text-soft_white font-bold">SEO Optimization</h2>
+                            <p class="text-my dark:text-gray-400 my-4">I optimize your website for search engines, improving its visibility and increasing organic traffic. I implement SEO best practices to help your website rank higher in search results.</p>
+                            <a href="#" class="text-yellow-600 dark:text-yellow-500 font-extrabold uppercase tracking-widest">Hyper text</a>
+                        </div>
+                        <div class="shadow-xl dark:shadow-none col-span-3 md:col-span-1 bg-gray-100 dark:bg-gray-800 p-8 text-left dark:text-left">
+                            <h2 class="text-soft dark:text-soft_white font-bold">Web Hosting & Domain Services</h2>
+                            <p class="text-my dark:text-gray-400 my-4">I provide reliable web hosting and domain services to keep your website online and accessible. I offer a range of hosting options, including shared hosting, VPS hosting, and dedicated servers, tailored to your specific needs.</p>
+                            <a href="#" class="text-yellow-600 dark:text-yellow-500 font-extrabold uppercase tracking-widest">Hyper text</a>
+                        </div>
+                    </div>
+
+                </section>
+
+                <!-- -->
+                <section class="my-6"></section>
+
+                <!-- Blog articles -->
+                <section class="my-6">
+                    <h2 class="text-soft dark:text-soft_white text-left dark:text-left mb-4 font-bold">Blog</h2>
+                    <div class="grid gap-8 lg:grid-cols-2">
+                        {# --------------------------------- #}
+                        <article class="relative shadow-2xl dark:shadow-none">
+                            <div class="absolute -top-4 right-4  rounded-full" {# src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png" alt="avatar"  #}>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" class="fill-my_gray dark:fill-soft_white"><path d="M15 11.586V6h2V4a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v2h2v5.586l-2.707 1.707A.996.996 0 0 0 6 14v2a1 1 0 0 0 1 1h4v3l1 2 1-2v-3h4a1 1 0 0 0 1-1v-2a.996.996 0 0 0-.293-.707L15 11.586z"></path></svg>
+                            </div>
+                            <div class="p-6 bg-gray-100 shadow-md dark:bg-gray-800">
+                                <div class="flex justify-items-start items-center mb-5 text-gray-500">
+                                    <span class="bg-light_body text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 dark:bg-body dark:text-soft_white">
+                                        <svg class="mr-1 w-3 h-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z"></path></svg>
+                                        Tutorial
+                                    </span>
+                                <span class="text-sm ml-4">14 days ago</span>
+                            </div>
+                            <h2 class="mb-2 text-2xl font-bold tracking-tight text-soft dark:text-soft_white text-left"><a href="#">How to quickly deploy a static website</a></h2>
+                            <p class="mb-5  text-my_gray dark:text-gray-400 text-left">Static websites are now used to bootstrap lots of websites and are becoming the basis for a variety of tools that even influence both web designers and developers influence both web designers and developers.</p>
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center space-x-4">
+                                      <span class="font-medium dark:text-white">
+                                      Marek Mikulec
+                                    </span>
+                                </div>
+                                <a href="#" class="inline-flex items-center font-extrabold text-yellow-600 dark:text-yellow-500 hover:underline">
+                                    Read more
+                                   <svg class="ml-2 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                                </a>
+                            </div>
+                          </div>
+                        </article>
+                        <article class="relative shadow-2xl dark:shadow-none">
+                            <img class="absolute -top-4 right-4 w-16 h-16 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png" alt="avatar" />
+                            <div class="p-6 bg-gray-100 shadow-md dark:bg-gray-800">
+                                <div class="flex justify-items-start items-center mb-5 text-gray-500">
+                                    <span class="bg-light_body text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-body dark:text-soft_white">
+                                        <svg class="mr-1 w-3 h-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M2 5a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 002 2H4a2 2 0 01-2-2V5zm3 1h6v4H5V6zm6 6H5v2h6v-2z" clip-rule="evenodd"></path><path d="M15 7h1a2 2 0 012 2v5.5a1.5 1.5 0 01-3 0V7z"></path></svg>
+                                        Article
+                                    </span>
+                                    <span class="text-sm ml-4">14 days ago</span>
+                                </div>
+                                <h2 class="mb-2 text-2xl font-bold tracking-tight text-soft dark:text-soft_white text-left"><a href="#">How to quickly deploy a static website</a></h2>
+                                <p class="mb-5  text-my_gray dark:text-gray-400 text-left">Static websites are now used to bootstrap lots of websites and are becoming the basis for a variety of tools that even influence both web designers and developers influence both web designers and developers.</p>
+                                <div class="flex justify-between items-center">
+                                    <div class="flex items-center space-x-4">
+                                        <span class="font-medium dark:text-white">
+                                          Marek Mikulec
+                                        </span>
+                                    </div>
+                                    <a href="#" class="inline-flex items-center font-extrabold text-yellow-600 dark:text-yellow-500 hover:underline">
+                                        Read more
+                                        <svg class="ml-2 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+                        {# --------------------------------- #}
+                    </div>
+                </section>
+
+                <!-- News picture -->
+                <section class="my-6">
+                    <h2 class="text-soft dark:text-soft_white text-left dark:text-left mb-4 font-bold">News</h2>
+                    <div class="grid gap-8 lg:grid-cols-3">
+                        {# -----------++++++++++++------------- #}
+                        <article class="p-4 bg-gray-100 dark:bg-gray-800 shadow-2xl dark:shadow-none text-left">
+                            <a href="#">
+                              <img class="mb-5 " src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/blog/office-laptops.png" alt="office laptop working">
+                            </a>
+                            <div class="flex justify-between items-center mb-5 text-gray-500">
+                              <span class="bg-light_body text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-body dark:text-soft_white">
+                                  <svg class="mr-1 w-3 h-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z"></path></svg>
+                                  Tutorial
+                              </span>
+                              <span class="text-sm">14 days ago</span>
+                            </div>
+                            <h2 class="mb-4 text-xl font-bold text-soft dark:text-soft_white">
+                              <a href="#">Our first office</a>
+                            </h2>
+                            <p class="mb-5  text-my_gray dark:text-gray-400 text-left">Over the past year, Volosoft has undergone many changes! After months of preparation and some hard work, we moved to our new office.</p>
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center space-x-4">
+                                    {# <img class="w-7 h-7 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png" alt="Jese Leos avatar" />
+                                    <span class="font-medium dark:text-white">
+                                        Jese Leos
+                                    </span> #}
+                                </div>
+                                <a href="#" class="inline-flex items-center font-extrabold text-yellow-600 dark:text-yellow-500 hover:underline">
+                                    Read more
+                                    <svg class="ml-2 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                                </a>
+                            </div>
+                        </article>
+                        <article class="p-4 bg-gray-100 dark:bg-gray-800 shadow-2xl dark:shadow-none text-left">
+                            <a href="#">
+                              <img class="mb-5 " src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/blog/google-hq.png" alt="office laptop working">
+                            </a>
+                            <div class="flex justify-between items-center mb-5 text-gray-500">
+                              <span class="bg-light_body text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-body dark:text-soft_white">
+                                  <svg class="mr-1 w-3 h-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z"></path></svg>
+                                  Tutorial
+                              </span>
+                              <span class="text-sm">14 days ago</span>
+                            </div>
+                            <h2 class="mb-4 text-xl font-bold text-soft dark:text-soft_white">
+                              <a href="#">Our first office</a>
+                            </h2>
+                            <p class="mb-5  text-my_gray dark:text-gray-400 text-left">Over the past year, Volosoft has undergone many changes! After months of preparation and some hard work, we moved to our new office.</p>
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center space-x-4">
+                                    {# <img class="w-7 h-7 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png" alt="Jese Leos avatar" />
+                                    <span class="font-medium dark:text-white">
+                                        Jese Leos
+                                    </span> #}
+                                </div>
+                                <a href="#" class="inline-flex items-center font-extrabold text-yellow-600 dark:text-yellow-500 hover:underline">
+                                    Read more
+                                    <svg class="ml-2 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                                </a>
+                            </div>
+                        </article>
+                        <article class="p-4 bg-gray-100 dark:bg-gray-800 shadow-2xl dark:shadow-none text-left">
+                            <a href="#">
+                              <img class="mb-5 " src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/blog/office-laptops-2.png" alt="office laptop working">
+                            </a>
+                            <div class="flex justify-between items-center mb-5 text-gray-500">
+                              <span class="bg-light_body text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-body dark:text-soft_white">
+                                  <svg class="mr-1 w-3 h-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z"></path></svg>
+                                  Tutorial
+                              </span>
+                              <span class="text-sm">14 days ago</span>
+                            </div>
+                            <h2 class="mb-4 text-xl font-bold text-soft dark:text-soft_white">
+                              <a href="#">Our first office</a>
+                            </h2>
+                            <p class="mb-5  text-my_gray dark:text-gray-400 text-left">Over the past year, Volosoft has undergone many changes! After months of preparation and some hard work, we moved to our new office.</p>
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center space-x-4">
+                                    {# <img class="w-7 h-7 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png" alt="Jese Leos avatar" />
+                                    <span class="font-medium dark:text-white">
+                                        Jese Leos
+                                    </span> #}
+                                </div>
+                                <a href="#" class="inline-flex items-center font-extrabold text-yellow-600 dark:text-yellow-500 hover:underline">
+                                    Read more
+                                    <svg class="ml-2 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                                </a>
+                            </div>
+                        </article>
+                        {# -----------++++++++++++------------- #}
+                      </div>
+                </section>
+
+                <!-- Projects 2 columns picture -->
+                <section class="my-6">
+                    <h2 class="text-soft dark:text-soft_white text-left dark:text-left mb-4 font-bold">Projects</h2>
+                    <div class="grid gap-8 lg:grid-cols-2">
+                        {# -----------++++++++++++------------- #}
+                        <article class="p-4 bg-gray-100 dark:bg-gray-800 shadow-2xl dark:shadow-none text-left">
+                            <a href="#">
+                              <img class="mb-5 " src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/blog/office-laptops.png" alt="office laptop working">
+                            </a>
+                            {#
+                            <div class="flex justify-between items-center mb-5 text-gray-500">
+                              <span class="bg-light_body text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-body dark:text-soft_white">
+                                  <svg class="mr-1 w-3 h-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z"></path></svg>
+                                  Tutorial
+                              </span>
+                              <span class="text-sm">14 days ago</span>
+                            </div>  #}
+                            <h2 class="mb-4 text-xl font-bold text-soft dark:text-soft_white">
+                              <a href="#">Our first office</a>
+                            </h2>
+                            <p class="mb-5  text-my_gray dark:text-gray-400 text-left">Over the past year, Volosoft has undergone many changes! After months of preparation and some hard work, we moved to our new office. Over the past year, Volosoft has undergone many changes! After months of preparation and some hard work, we moved to our new office.</p>
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center space-x-4">
+                                    {# }<img class="w-7 h-7 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png" alt="Jese Leos avatar" />
+                                    <span class="font-medium dark:text-white">
+                                        Jese Leos
+                                    </span> #}
+                                </div>
+                                <a href="#" class="inline-flex items-center font-extrabold text-yellow-600 dark:text-yellow-500 hover:underline">
+                                    Read more
+                                    <svg class="ml-2 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                                </a>
+                            </div>
+                        </article>
+                        <article class="p-4 bg-gray-100 dark:bg-gray-800 shadow-2xl dark:shadow-none text-left">
+                            <a href="#">
+                              <img class="mb-5 " src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/blog/google-hq.png" alt="office laptop working">
+                            </a>
+                            {#
+                            <div class="flex justify-between items-center mb-5 text-gray-500">
+                              <span class="bg-light_body text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-body dark:text-soft_white">
+                                  <svg class="mr-1 w-3 h-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z"></path></svg>
+                                  Tutorial
+                              </span>
+                              <span class="text-sm">14 days ago</span>
+                            </div> #}
+                            <h2 class="mb-4 text-xl font-bold text-soft dark:text-soft_white">
+                              <a href="#">Our first office</a>
+                            </h2>
+                            <p class="mb-5  text-my_gray dark:text-gray-400 text-left">Over the past year, Volosoft has undergone many changes! After months of preparation and some hard work, we moved to our new office. Over the past year, Volosoft has undergone many changes! After months of preparation and some hard work, we moved to our new office.</p>
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center space-x-4">
+                                    {# }<img class="w-7 h-7 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png" alt="Jese Leos avatar" />
+                                    <span class="font-medium dark:text-white">
+                                        Jese Leos
+                                    </span> #}
+                                </div>
+                                <a href="#" class="inline-flex items-center font-extrabold text-yellow-600 dark:text-yellow-500 hover:underline">
+                                    Read more
+                                    <svg class="ml-2 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                                </a>
+                            </div>
+                        </article>
+                        {# -----------++++++++++++------------- #}
+                      </div>
+                </section>
+
+                <!-- Footer -->
+                <footer class="shadow-xl body-font bg-gray-100 dark:bg-gray-800 mt-6">
+                    <div class="px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+                        <p class="text-sm dark:text-sm text-center dark:text-center sm:text-left dark:sm:text-left text-soft dark:text-soft_white">© 2023
+                        </p>
+                    </div>
+                </footer>
+            </div>
+
+        </main>
+
+        <!-- Menu -->
+        <nav id="menu" class="w-16 z-40 transition-all duration-300 fixed right-0 shadow-2xl dark:shadow-none
+            sm:right-[calc((100%-640px)/2)]
+            md:right-[calc((100%-768px)/2)]
+            lg:right-[calc((100%-1024px)/2)]
+            xl:right-[calc((100%-1280px)/2)]
+            2xl:right-[calc((100%-1536px)/2)]
+            {# h-[calc(100vh-3rem)] #} h-full text-soft dark:text-soft_white bg-[rgba(240,240,240,1)]/80 dark:bg-[rgba(30,30,40,1)]/80 overflow-auto flex justify-center">
+
+            <!-- Burger icon -->
+            <div id="burger" class="space-y-2 absolute top-6 right-4 opacity-60" onclick="expandMenu()">
+                <svg class="w-[30px] h-[30px] text-gray-800 dark:text-soft_white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"></path>
+                </svg>
+            </div>
+
+            <div id="burger-x" class="space-y-2 absolute top-6 right-4 opacity-60 hidden" onclick="expandMenu()">
+                <svg class="w-[30px] h-[30px] text-gray-800  dark:text-soft_white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="12" fill="none" viewBox="0 0 16 12">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h14M1 6h14M1 11h7"></path>
+              </svg>
+            </div>
+
+            <!-- Light/Dark mode icon -->
+            <div id="lightModeIcon" class="space-y-2 absolute top-[78px] right-4 opacity-60" onclick="toggleDarkMode()">
+                <svg class="w-[30px] h-[30px] text-gray-800 dark:text-soft_white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.509 5.75c0-1.493.394-2.96 1.144-4.25h-.081a8.5 8.5 0 1 0 7.356 12.746A8.5 8.5 0 0 1 8.509 5.75Z"></path>
+                </svg>
+            </div>
+
+            <div id="darkModeIcon" class="space-y-2 absolute top-[78px] right-4 opacity-60 hidden" onclick="toggleDarkMode()">
+                <svg class="w-[30px] h-[30px] text-gray-800 dark:text-soft_white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 3V1m0 18v-2M5.05 5.05 3.636 3.636m12.728 12.728L14.95 14.95M3 10H1m18 0h-2M5.05 14.95l-1.414 1.414M16.364 3.636 14.95 5.05M14 10a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z"></path>
+                </svg>
+            </div>
+
+            <!-- Info icon -->
+            <div id="info-icon" class="space-y-2 absolute top-[132px] right-4 opacity-60 block lg:hidden" onclick="expandInfo()">
+                <svg class="w-[30px] h-[30px] text-gray-800 dark:text-soft_white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9h2v5m-2 0h4M9.408 5.5h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+                </svg>
+            </div>
+
+            <!-- Actual page and menu -->
+            <div class="mt-52 flex flex-col space-y-8 text-center dark:text-center">
+                <h1 id="page-name" class="transform rotate-90 text-soft dark:text-soft_white text-xl dark:text-xl tracking-widest">Home</h1>
+                <div id="menu-links"  class="mt-12 space-y-5 text-left dark:text-left hidden">
+                    <div><a href="#" class="text-soft dark:text-soft_white uppercase font-semibold hover:text-soft dark:hover:text-soft_white">Home</a></div>
+                    <div><a href="#" class="text-my dark:text-my_gray uppercase font-semibold hover:text-soft dark:hover:text-soft_white">Projects</a></div>
+                    <div><a href="#" class="text-my dark:text-my_gray uppercase font-semibold hover:text-soft dark:hover:text-soft_white">Blog</a></div>
+                    <div><a href="#" class="text-my dark:text-my_gray uppercase font-semibold hover:text-soft dark:hover:text-soft_white">About me</a></div>
+                </div>
+            </div>
+
+        </nav>
+    </div>
+
+{% endblock %}
+{% block script %}
+    <script>
+        // Function to toggle dark mode
+        function toggleDarkMode() {
+            // Getting the elements
+            const lightIcon = document.getElementById('lightModeIcon');
+            const darkIcon = document.getElementById('darkModeIcon');
+
+            // Toggling visibility of the icons
+            lightIcon.classList.toggle('hidden');
+            darkIcon.classList.toggle('hidden');
+
+            // Check current theme
+            const currentTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+
+            // Toggle the theme and save the preference in localStorage
+            if (currentTheme === 'dark') {
+                document.documentElement.classList.remove('dark');
+                localStorage.theme = 'light';
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.theme = 'dark';
+            }
+        }
+
+        // Set the initial theme on page load
+        window.addEventListener('DOMContentLoaded', (event) => {
+            // Check user preference
+            const userPrefersDark = localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+            if (userPrefersDark) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+
+
+        function closeMenu() {
+            const menu = document.getElementById('menu');
+            const main = document.getElementById('main');
+            const burger = document.getElementById('burger');
+            const cross = document.getElementById('burger-x');
+            const pageName = document.getElementById('page-name');
+            const menuLinks = document.getElementById('menu-links');
+            const infoBar = document.getElementById('info-bar');
+
+            // Resetting Info Bar
+            // infoBar.classList.remove('visible', 'opacity-100');
+            infoBar.classList.add('hidden', 'opacity-0');
+
+            // Resetting Menu
+            menu.classList.remove('w-72');
+            menu.classList.add('w-16');
+            menu.classList.remove('hidden');
+
+            // Resetting Main
+            main.classList.remove("brightness-75");
+            main.classList.remove("lg:brightness-75");
+
+            // Resetting Burger & Cross icons
+            burger.classList.remove('hidden');
+            cross.classList.add('hidden');
+
+            // Resetting Page Name and Menu Links
+            pageName.classList.remove('hidden');
+            menuLinks.classList.add('hidden');
+
+            console.log('Menu and Info Bar closed');
+        }
+
+
+
+        function typeWriter(element, txt, txtIndex = 0, charIndex = 0) {
+                if (charIndex < txt[txtIndex].length) {
+                    element.innerHTML += txt[txtIndex].charAt(charIndex);
+                    setTimeout(() => {
+                        typeWriter(element, txt, txtIndex, charIndex + 1);
+                    }, speed);
+                } else {
+                    setTimeout(() => {
+                        eraseWriter(element, txt, txtIndex, txt[txtIndex].length - 1);
+                    }, 2000);
+                }
+            }
+
+        function eraseWriter(element, txt, txtIndex, charIndex) {
+            if (charIndex >= 0) {
+                element.innerHTML = txt[txtIndex].substring(0, charIndex);
+                setTimeout(() => {
+                    eraseWriter(element, txt, txtIndex, charIndex - 1);
+                }, speed);
+            } else {
+                if (txtIndex < txt.length - 1) {
+                    setTimeout(() => {
+                        typeWriter(element, txt, txtIndex + 1, 0);
+                    }, 2000);
+                } else {
+                    setTimeout(() => {
+                        typeWriter(element, txt, 0, 0);
+                    }, 2000);
+                }
+            }
+        }
+
+        const speed = 100;  // Change this to control typing speed
+        const typewriterElements = document.querySelectorAll('.typewriter');
+
+        typewriterElements.forEach(element => {
+          const txt = JSON.parse(element.getAttribute('data-txt'));
+          typeWriter(element, txt);
+        });
+
+        function expandInfo() {
+            const menu = document.getElementById('menu');
+            const main = document.getElementById('main');
+            const burger = document.getElementById('burger');
+            const cross = document.getElementById('burger-x');
+            const pageName = document.getElementById('page-name');
+            const menuLinks = document.getElementById('menu-links');
+            const infoBar = document.getElementById('info-bar')
+
+            main.classList.remove("lg:brightness-75");
+
+            if(infoBar.classList.contains('hidden')){
+                infoBar.classList.remove('hidden')
+                infoBar.classList.remove('opacity-0')
+                infoBar.classList.add('opacity-100')
+                menu.classList.remove('w-72');
+                menu.classList.add('w-16');
+                main.classList.add("brightness-75");
+
+                pageName.classList.remove('hidden');  // Show the page name
+                menuLinks.classList.add('hidden');  // Hide the links
+
+                burger.classList.remove('hidden');
+                cross.classList.add('hidden');
+            } else {
+                infoBar.classList.add('hidden')
+                infoBar.classList.remove('opacity-100')
+                infoBar.classList.add('opacity-0')
+                main.classList.remove("brightness-75");
+            }
+        }
+
+        function expandMenu() {
+            const menu = document.getElementById('menu');
+            const main = document.getElementById('main');
+            const burger = document.getElementById('burger');
+            const cross = document.getElementById('burger-x');
+            const pageName = document.getElementById('page-name');
+            const menuLinks = document.getElementById('menu-links');
+            const infoBar = document.getElementById('info-bar')
+
+            if (menu.classList.contains('w-72')) {
+                menu.classList.remove('w-72');
+                menu.classList.add('w-16');
+                main.classList.remove("brightness-75");
+                main.classList.remove("lg:brightness-75");
+
+                pageName.classList.remove('hidden');  // Show the page name
+                menuLinks.classList.add('hidden');  // Hide the links
+
+                burger.classList.remove('hidden');
+                cross.classList.add('hidden');
+            } else {
+                menu.classList.remove('w-16');
+                menu.classList.add('w-72');
+                main.classList.add("brightness-75");
+                main.classList.add("lg:brightness-75");
+
+                pageName.classList.add('hidden');  // Hide the page name
+                menuLinks.classList.remove('hidden');  // Show the links
+
+                burger.classList.add('hidden');
+                cross.classList.remove('hidden');
+
+                infoBar.classList.add('hidden')
+            }
+        }
+    </script>
+{% endblock %}

@@ -1,3 +1,5 @@
 /node_modules
 /.idea
 /static/dist/styles.css
+
+*.env

@@ -6,11 +6,12 @@
     {% block head %}
     {% endblock %}
     <link href="{{url_for('static',filename='dist/styles.css')}}" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
 </head>
 
-<body class="text-center bg-body min-h-screen py-6">
+<body class="text-center bg-light_body dark:bg-body min-h-screen py-6">
+
+    <div class="fixed top-0 bg-light_body dark:bg-body w-full h-6 z-50 "></div>
+    <div class="fixed bottom-0 bg-light_body dark:bg-body w-full h-6 z-50 "></div>
     {% include 'navbar.jinja2' %}
 
     {% block content %}
