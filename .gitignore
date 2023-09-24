@@ -1,5 +1,6 @@
 /node_modules
 /.idea
 /static/dist/styles.css
+**/__pycache__/
 
 *.env
